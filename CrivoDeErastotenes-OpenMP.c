@@ -1,27 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <inttypes.h>
 #include <omp.h>
 
 int main() {
 
+    setlocale(LC_ALL, "Portuguese");
+
     int limite;
-    int threads = omp_get_num_procs() / 2;
+    int threads = 3;
     double inicio, fim, tempo;
-    int *x;
+    int8_t *x;
 
     printf("Digite um número: ");
     scanf("%d", &limite);
 
-    x = (int *)malloc(sizeof(int) * (limite - 1));
+    x = (int8_t *)malloc(sizeof(int8_t) * (limite - 1));
 
     if(x == NULL)
         exit(1);
 
 
-    tempo = omp_get_wtime();
+    inicio = omp_get_wtime();
     #pragma omp parallel num_threads(threads)
     {
+
         #pragma omp for
         for(int i = 0; i < (limite - 1); i++)
             x[i] = 1;
@@ -48,12 +52,14 @@ int main() {
 
     tempo = fim - inicio;
 
+    /*
     for(int i = 0; i < (limite - 1); i++) {
 
         if(x[i])
             printf("%d\n", i + 2);
 
     }
+    */
 
     printf("Tempo de execução paralelo com %d threads: %lf.\n", threads, tempo);
 
