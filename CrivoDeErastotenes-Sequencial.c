@@ -39,14 +39,12 @@ int main() {
 
     tempo = fim - inicio;
 
-    /*
     for(int i = 0; i < (limite - 1); i++) {
 
         if(x[i])
             printf("%d\n", i + 2);
 
     }
-    */
 
     printf("Tempo de execução sequncial: %lf.\n", tempo);
 
