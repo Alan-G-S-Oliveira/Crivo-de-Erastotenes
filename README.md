@@ -1,2 +1,3 @@
 # Crivo-de-Erastotenes
-Trabalho para a disciplina de Programação Concorrente, que consiste em escrver o algoritmo do Crivo de Erastótenes de forma paralela.
+## Objetivo
+Trabalho para a disciplina de Programação Concorrente, que consiste em escever o algoritmo do Crivo de Eratóstenes de forma paralela.
